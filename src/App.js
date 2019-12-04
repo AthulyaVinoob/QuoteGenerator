@@ -1,7 +1,17 @@
 import React, { Component } from 'react';
 import { random } from 'lodash';
-import './App.css';
+import { Grid, withStyles } from '@material-ui/core';
 import QuoteComponent from './component/QuoteComponent';
+
+
+const styles = {
+  container: {
+    alignItems: 'center',
+    display: 'flex',
+    height: '100vh',
+  }
+};
+
 
 class App extends Component {
   constructor(props) {
@@ -47,13 +57,13 @@ Updates state by passing new index
 
   render() {
     return (
-      <div className="App" id="quote-box">
-        <QuoteComponent selectedQuote={this.selectedQuote}
-                        assignNewQuoteIndex ={this.assignNewQuoteIndex}
-        />
-      </div>
+      <Grid className={this.props.classes.container} id="quote-box" justify="center" container>
+        <Grid xs={11} lg={8} item>
+          <QuoteComponent selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex} />
+        </Grid>
+      </Grid>
     );
   }
 }
 
-export default App;
+export default withStyles(styles)(App);
