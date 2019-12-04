@@ -57,9 +57,12 @@ Updates state by passing new index
 
   render() {
     return (
-      <Grid className={this.props.classes.container} id="quote-box" justify="center" container>
-        <Grid xs={11} lg={8} item>
-          <QuoteComponent selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex} />
+      <Grid className={this.props.classes.container} justify="center" container>
+        <Grid id="quote-box" xs={11} lg={8} item>
+          { this.selectedQuote ?
+            <QuoteComponent  selectedQuote={this.selectedQuote} assignNewQuoteIndex={this.assignNewQuoteIndex} />
+            :null
+          }
         </Grid>
       </Grid>
     );

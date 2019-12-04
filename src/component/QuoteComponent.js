@@ -12,20 +12,22 @@ import {faTwitter} from '@fortawesome/free-brands-svg-icons'
 const QuoteMachine = (props) => (
   <Card>
     <CardContent>
-      {
-        props.selectedQuote ?
-        (
           <Typography>
-            {props.selectedQuote.quote} - {props.selectedQuote.author}
+            <div id="text">
+            {props.selectedQuote.quote} 
+            </div>
+            <div id="author">
+            - {props.selectedQuote.author}
+            </div>
           </Typography>
-        ) : null
-      }
     </CardContent>
     <CardActions>
-      <Button size="small" onClick={props.assignNewQuoteIndex}>Next Quote</Button>
-    <IconButton
-    target="_blank"
-    onClick={() => alert("Post comment to twitter TODO")}>
+      <Button id="new-quote" size="small" onClick={props.assignNewQuoteIndex}>Next Quote</Button>
+     <IconButton
+        id="tweet-quote"
+        target="_blank"
+        href={encodeURI(`https://twitter.com/intent/tweet?text=${props.selectedQuote.quote}&hashtags=QuoteGenrator`)}
+      >
     <FontAwesomeIcon icon={faTwitter} size="md"></FontAwesomeIcon>
     </IconButton>
     </CardActions>
